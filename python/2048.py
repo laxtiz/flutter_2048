@@ -56,7 +56,7 @@ class Game:
                 if self.data[y][x] == 0:
                     zeros.append((x, y))
 
-        if len(zeros) == 0:
+        if not zeros:
             raise GameOverException("没有空地可生成新的数字")
 
         i = randint(0, len(zeros) - 1)
@@ -107,7 +107,7 @@ def tidy(it: Iterable[int]) -> Iterable[int]:
         for v in l:
             if v == 0:
                 continue
-            if len(t) > 0 and t[-1] == v:
+            if t and t[-1] == v:
                 t[-1] += v
                 continue
             t.append(v)
